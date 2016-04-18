@@ -1,0 +1,21 @@
+.navbar-default{
+	background: #BB111F;
+	color: white;
+}
+
+.white-text{
+	color: white;
+}
+.white-bar{
+	background: white;
+	height: 5px;
+}
+li:hover{
+	background: #8B111F;
+}
+.red-btn{
+	background: #BB111F;
+	color:white;
+	border-color: #8B111F;
+	padding-left: auto;
+}
