@@ -89,7 +89,7 @@
                 <div class="col-sm-offset-4"></div>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="{{ url('create/store') }}" method="post">
+                <form class="form-horizontal" action="{{ url('register') }}" method="post">
                   <div class="form-group" >
                     <label for="username" class="col-sm-2 control-label">Username: </label>
                     <div class="col-sm-10">
