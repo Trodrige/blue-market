@@ -12,11 +12,11 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     -->
     <!-- Styles -->
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
 
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="<?php echo e(asset('css/bootstrap.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
 
     <style>
         body {
@@ -43,7 +43,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" style="color: white;" href="{{ url('/') }}">
+                <a class="navbar-brand" style="color: white;" href="<?php echo e(url('/')); ?>">
                     RedMarket
                 </a>
             </div>
@@ -51,26 +51,26 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav" >
-                    <li><a  style="color: white;" href="{{ url('/home') }}">Home</a></li>
+                    <li><a  style="color: white;" href="<?php echo e(url('/home')); ?>">Home</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
+                    <?php if(Auth::guest()): ?>
                         <li><a style="color: white;" href="" data-toggle="modal" data-target="#login">Login</a></li>
                         <li><a style="color: white;" href="" data-toggle="modal" data-target="#signup">Register</a></li>
-                    @else
+                    <?php else: ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
-                    @endif
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -89,7 +89,7 @@
                 <div class="col-sm-offset-4"></div>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="{{ url('create/store') }}" method="post">
+                <form class="form-horizontal" action="<?php echo e(url('create/store')); ?>" method="post">
                   <div class="form-group" >
                     <label for="username" class="col-sm-2 control-label">Username: </label>
                     <div class="col-sm-10">
@@ -154,7 +154,7 @@
               </div>
               <div class="modal-body">
                 <!-- login form -->
-                <form class="form-horizontal" method="POST" action="{{url('/auth/login')}}">
+                <form class="form-horizontal" method="POST" action="<?php echo e(url('/auth/login')); ?>">
                   <div class="form-group">
                     <label for="email_login" class="col-sm-2 control-label">Email: </label>
                     <div class="col-sm-10">
@@ -182,7 +182,7 @@
           </div>
         </div>
         
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 
    
 </body>
