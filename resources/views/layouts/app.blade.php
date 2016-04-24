@@ -52,6 +52,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav" >
                     <li><a  style="color: white;" href="{{ url('/home') }}">Home</a></li>
+                    <li><a  style="color: white;" href="" data-toggle="modal" data-target="#post">Post</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -177,6 +178,56 @@
               <div class="modal-footer">
                 <p>Don't have account? <a data-toggle="modal" data-dismiss="modal" data-target="#signup">Sign up here</a></p>
               </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Modal for post
+        =============================================================================-->
+        <div class="modal fade" id="post" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title col-sm-offset-4 col-sm-4"><strong>Post</strong></h4>
+                <div class="col-sm-offset-4"></div>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal" action="" method="">
+                  <div class="form-group" >
+                    <label for="description" class="col-sm-2 control-label">Description: </label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" name="description"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group" >
+                    <label for="category" class="col-sm-2 control-label">Category: </label>
+                    <div class="col-sm-10">
+                      <select class="form-control">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group" >
+                    <label for="picture" class="col-sm-2 control-label">Picture: </label>
+                    <div class="col-sm-10">
+                      <input type="file" class="" id="picture" name="picture" required>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                      <a  class="btn btn-default red-btn" href="{{url('/post/sell')}}">SELL</a>
+                      <a  class="btn btn-default red-btn" href="{{url('/post/buy')}}">BUY</a>
+                    </div>
+                  </div>
+                  
+                </form>
+              </div>
+              
             </div>
 
           </div>
