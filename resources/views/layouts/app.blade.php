@@ -7,7 +7,7 @@
 
     <title>BlueMarket</title>
 
-    <!-- Fonts 
+    <!-- Fonts
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     -->
@@ -20,7 +20,7 @@
 
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'AquaBase';
         }
 
         .fa-btn {
@@ -75,7 +75,7 @@
             </div>
         </div>
     </nav>
-    
+
         <!-- Modal for signup
         ========================================================================-->
         <div class="modal fade" id="signup" role="dialog">
@@ -89,7 +89,7 @@
                 <div class="col-sm-offset-4"></div>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="{{ url('create/store') }}" method="post">
+                <form class="form-horizontal" action="{{ url('register') }}" method="post">
                   <div class="form-group" >
                     <label for="username" class="col-sm-2 control-label">Username: </label>
                     <div class="col-sm-10">
@@ -181,9 +181,9 @@
 
           </div>
         </div>
-        
+
     @yield('content')
 
-   
+
 </body>
 </html>
