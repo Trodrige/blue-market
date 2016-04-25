@@ -13,6 +13,9 @@
 li:hover{
 	background: #8B111F;
 }
+ul:active{
+	background: #8B111F;
+}
 .red-btn{
 	background: #BB111F;
 	color:white;
