@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -61,12 +63,40 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create(Request $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $imageName = '';
+
+        if($data->hasFile('picture')){
+            $destinationPath = 'uploads/images/';
+            $picture = $data->file('picture');
+            $imageName = time()."-".$picture->getClientOriginalName();
+            $data->file('picture')->move($destinationPath, $imageName);
+
+        }
+
+        User::create([
+            'firstname' => $data->firstname,
+            'lastname' => $data->lastname,
+            'email' => $data->email,
+            'password' => bcrypt($data->password),
+            'picture' => $imageName,
         ]);
+
+        return redirect('/');
+
+    }
+
+    protected function login(Request $data)
+    {
+        $email = $data->email;
+        $password = $data->password;
+
+        if(Auth::attempt(['email' => $email, 'password' => $password])){
+
+            return redirect('/');
+        }
+
+        return redirect('/');
     }
 }

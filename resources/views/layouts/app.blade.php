@@ -7,7 +7,7 @@
 
     <title>BlueMarket</title>
 
-    <!-- Fonts 
+    <!-- Fonts
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     -->
@@ -20,7 +20,7 @@
 
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'AquaBase';
         }
 
         .fa-btn {
@@ -76,7 +76,7 @@
             </div>
         </div>
     </nav>
-    
+
         <!-- Modal for signup
         ========================================================================-->
         <div class="modal fade" id="signup" role="dialog">
@@ -90,23 +90,23 @@
                 <div class="col-sm-offset-4"></div>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="{{ url('create/store') }}" method="post">
-                  <div class="form-group" >
-                    <label for="username" class="col-sm-2 control-label">Username: </label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                  </div>
+                <form class="form-horizontal" action="{{ url('/auth/register') }}" method="post">
                   <div class="form-group" >
                     <label for="first_name" class="col-sm-2 control-label">Firstname: </label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="first_name" name="first_name" required>
+                      <input type="text" class="form-control" id="first_name" name="firstname" required>
                     </div>
                   </div>
                   <div class="form-group" >
                     <label for="last_name" class="col-sm-2 control-label">Lastname: </label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="last_name" name="last_name" required>
+                      <input type="text" class="form-control" id="last_name" name="lastname" required>
+                    </div>
+                  </div>
+                  <div class="form-group" >
+                    <label for="email" class="col-sm-2 control-label">Email: </label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                   </div>
                   <div class="form-group" >
@@ -122,9 +122,9 @@
                     </div>
                   </div>
                   <div class="form-group" >
-                    <label for="email" class="col-sm-2 control-label">Email: </label>
+                    <label for="picture" class="col-sm-2 control-label">Profile picture: </label>
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="email" name="email" required>
+                      <input type="file" class="" id="picture" name="picture" required>
                     </div>
                   </div>
                   <div class="form-group">
@@ -207,7 +207,7 @@
                     <label for="category" class="col-sm-2 control-label">Category: </label>
                     <div class="col-sm-10">
                       <select class="form-control">
-                        <option></option>
+                        <option>vehicle</option>
                       </select>
                     </div>
                   </div>
@@ -235,6 +235,6 @@
         
     @yield('content')
 
-   
+
 </body>
 </html>

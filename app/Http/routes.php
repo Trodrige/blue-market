@@ -10,16 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::auth();
 
- Route::get('/', function () {
+Route::get('/', function () {
         return view('welcome');
     });
 
+Route::Post('/auth/register', 'Auth\AuthController@create');
+Route::Post('/auth/login', 'Auth\AuthController@login');
+Route::get('/post/buy', 'Post\PostController@storeBuy');
+Route::get('/post/sell', 'Post\PostController@storeSell');
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
-    Route::get('/post/buy', 'Post\PostController@storeBuy');
-    Route::get('/post/sell', 'Post\PostController@storeSell');
-});
