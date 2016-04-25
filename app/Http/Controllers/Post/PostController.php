@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Post;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use App\Buyers_post;
+use App\Sellers_post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -29,7 +31,7 @@ class PostController extends Controller
     		]);
     }
 
-    public function storeSell()
+    public function storeSell(Request $data)
     {
     	$imageName = '';
 
