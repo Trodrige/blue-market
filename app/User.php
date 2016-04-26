@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Http\Controllers\User\UsersController;
 
 class User extends Authenticatable
 {

@@ -19,3 +19,16 @@ li:hover{
 	border-color: #8B111F;
 	padding-left: auto;
 }
+
+#profile-header{
+	text-align: center;
+	color: #BB111F;
+}
+
+#credentials{
+	border-left: 0.5px solid #DCDCDC
+}
+
+#row2{
+	border-bottom: 1px solid #DCDCDC ;
+}
