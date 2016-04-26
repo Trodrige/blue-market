@@ -26,9 +26,10 @@ li:hover{
 }
 
 #credentials{
-	border-left: 0.5px solid #DCDCDC
+	padding-left: 10%;
 }
 
-#row2{
-	border-bottom: 1px solid #DCDCDC ;
+#img{
+	border:1px solid #DCDCDC;
+	border-radius: 4px;
 }
