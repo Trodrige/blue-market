@@ -19,7 +19,9 @@ li:hover{
 	border-color: #8B111F;
 	padding-left: auto;
 }
-
+.modal-title{
+	color:  #BB111F;
+}
 #profile-header{
 	text-align: center;
 	color: #BB111F;

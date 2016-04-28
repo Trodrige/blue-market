@@ -48,7 +48,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.profile', ['user' => $user]);
+        return view('users.profile', ['users' => $user]);
     }
 
     /**
@@ -71,7 +71,27 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $image = null;
+
+        if($request->hasFile('picture')){
+            $destinationPath = 'uploads/images/';
+            $picture = $request->file('picture');
+            $image = time()."-".$picture->getClientOriginalName();
+            $picture->move($destinationPath, $image);
+        }
+
+        if(is_Null($image)){
+            $image = $user->picture;
+        }
+
+        $user->update(['firstname' => $request->firstname,
+                       'lastname' => $request->lastname,
+                       'email' => $request->email,
+                       'location' => $request->location,
+                       'picture' => $image
+                     ]);
+        return redirect('/user/{id}');
     }
 
     /**
