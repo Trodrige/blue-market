@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>BlueMarket</title>
 
-    <!-- Fonts 
+    <!-- Fonts
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     -->
@@ -20,7 +21,7 @@
 
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'AquaBase';
         }
 
         .fa-btn {
@@ -52,6 +53,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav" >
                     <li><a  style="color: white;" href="{{ url('/home') }}">Home</a></li>
+                    <li><a  style="color: white;" href="" data-toggle="modal" data-target="#post">Post</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -62,8 +64,8 @@
                         <li><a style="color: white;" href="" data-toggle="modal" data-target="#signup">Register</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                            <a href="#" class="dropdown-toggle" style="color: white;" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->firstname }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -75,7 +77,7 @@
             </div>
         </div>
     </nav>
-    
+
         <!-- Modal for signup
         ========================================================================-->
         <div class="modal fade" id="signup" role="dialog">
@@ -89,23 +91,24 @@
                 <div class="col-sm-offset-4"></div>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="{{ url('create/store') }}" method="post">
-                  <div class="form-group" >
-                    <label for="username" class="col-sm-2 control-label">Username: </label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                  </div>
+                <form class="form-horizontal" action="{{ url('/auth/register') }}" method="post">
+                {!! csrf_field() !!}
                   <div class="form-group" >
                     <label for="first_name" class="col-sm-2 control-label">Firstname: </label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="first_name" name="first_name" required>
+                      <input type="text" class="form-control" id="first_name" name="firstname" required>
                     </div>
                   </div>
                   <div class="form-group" >
                     <label for="last_name" class="col-sm-2 control-label">Lastname: </label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="last_name" name="last_name" required>
+                      <input type="text" class="form-control" id="last_name" name="lastname" required>
+                    </div>
+                  </div>
+                  <div class="form-group" >
+                    <label for="email" class="col-sm-2 control-label">Email: </label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                   </div>
                   <div class="form-group" >
@@ -121,9 +124,9 @@
                     </div>
                   </div>
                   <div class="form-group" >
-                    <label for="email" class="col-sm-2 control-label">Email: </label>
+                    <label for="picture" class="col-sm-2 control-label">Profile picture: </label>
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="email" name="email" required>
+                      <input type="file" class="" id="picture" name="picture" required>
                     </div>
                   </div>
                   <div class="form-group">
@@ -155,6 +158,7 @@
               <div class="modal-body">
                 <!-- login form -->
                 <form class="form-horizontal" method="POST" action="{{url('/auth/login')}}">
+                {!! csrf_field() !!}
                   <div class="form-group">
                     <label for="email_login" class="col-sm-2 control-label">Email: </label>
                     <div class="col-sm-10">
@@ -181,9 +185,60 @@
 
           </div>
         </div>
+
+        <!-- Modal for post
+        =============================================================================-->
+        <div class="modal fade" id="post" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title col-sm-offset-4 col-sm-4"><strong>Post</strong></h4>
+                <div class="col-sm-offset-4"></div>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal" action="" method="">
+                {!! csrf_field() !!}
+                  <div class="form-group" >
+                    <label for="description" class="col-sm-2 control-label">Description: </label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" name="description"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group" >
+                    <label for="category" class="col-sm-2 control-label">Category: </label>
+                    <div class="col-sm-10">
+                      <select class="form-control">
+                        <option>vehicle</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group" >
+                    <label for="picture" class="col-sm-2 control-label">Picture: </label>
+                    <div class="col-sm-10">
+                      <input type="file" class="" id="picture" name="picture" required>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                      <a  class="btn btn-default red-btn" href="{{url('/post/sell')}}">SELL</a>
+                      <a  class="btn btn-default red-btn" href="{{url('/post/buy')}}">BUY</a>
+                    </div>
+                  </div>
+                  
+                </form>
+              </div>
+              
+            </div>
+
+          </div>
+        </div>
         
     @yield('content')
 
-   
+
 </body>
 </html>
