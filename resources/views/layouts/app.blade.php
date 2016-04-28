@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>BlueMarket</title>
 
@@ -91,6 +92,7 @@
               </div>
               <div class="modal-body">
                 <form class="form-horizontal" action="{{ url('/auth/register') }}" method="post">
+                {!! csrf_field() !!}
                   <div class="form-group" >
                     <label for="first_name" class="col-sm-2 control-label">Firstname: </label>
                     <div class="col-sm-10">
@@ -156,6 +158,7 @@
               <div class="modal-body">
                 <!-- login form -->
                 <form class="form-horizontal" method="POST" action="{{url('/auth/login')}}">
+                {!! csrf_field() !!}
                   <div class="form-group">
                     <label for="email_login" class="col-sm-2 control-label">Email: </label>
                     <div class="col-sm-10">
@@ -197,6 +200,7 @@
               </div>
               <div class="modal-body">
                 <form class="form-horizontal" action="" method="">
+                {!! csrf_field() !!}
                   <div class="form-group" >
                     <label for="description" class="col-sm-2 control-label">Description: </label>
                     <div class="col-sm-10">

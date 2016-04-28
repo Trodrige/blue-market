@@ -14,6 +14,10 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+    }
     public function index()
     {
         //

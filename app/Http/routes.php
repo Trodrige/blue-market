@@ -12,12 +12,19 @@
 */
 Route::auth();
 
-Route::get('/', function () {
-        return view('welcome');
-    });
 
-Route::Post('/auth/register', 'Auth\AuthController@create');
+	
+
+
+Route::group(['middleware' => ['web']], function () {
+
+	
+	Route::get('/', function () {
+	        return view('welcome');
+	    });
+	Route::Post('/auth/register', 'Auth\AuthController@create');
 Route::Post('/auth/login', 'Auth\AuthController@login');
-Route::get('/post/buy', 'Post\PostController@storeBuy');
-Route::get('/post/sell', 'Post\PostController@storeSell');
+	Route::get('/post/buy', 'Post\PostController@storeBuy');
+	Route::get('/post/sell', 'Post\PostController@storeSell');
 
+});
