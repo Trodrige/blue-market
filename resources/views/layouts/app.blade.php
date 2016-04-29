@@ -199,7 +199,7 @@
                 <div class="col-sm-offset-4"></div>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="{{url('/post/sell')}}" method="">
+                <form class="form-horizontal" action="" method="">
                 {!! csrf_field() !!}
                   <div class="form-group" >
                     <label for="description" class="col-sm-2 control-label">Description: </label>
@@ -224,7 +224,7 @@
                   
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-4">
-                      <a  class="btn btn-default red-btn" href="">SELL</a>
+                      <a  class="btn btn-default red-btn" href="{{url('/post/sell')}}">SELL</a>
                       <a  class="btn btn-default red-btn" href="{{url('/post/buy')}}">BUY</a>
                     </div>
                   </div>
