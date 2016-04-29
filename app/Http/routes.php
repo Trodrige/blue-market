@@ -22,8 +22,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/', function () {
 	        return view('welcome');
 	    });
-	Route::Post('/auth/register', 'Auth\AuthController@create');
-Route::Post('/auth/login', 'Auth\AuthController@login');
+	Route::post('/auth/register', 'Auth\AuthController@create');
+	Route::post('/auth/login', 'Auth\AuthController@login');
 	Route::get('/post/buy', 'Post\PostController@storeBuy');
 	Route::get('/post/sell', 'Post\PostController@storeSell');
 

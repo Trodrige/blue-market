@@ -4,19 +4,15 @@ namespace App\Http\Controllers\Post;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 use Validator;
 use App\Buyers_post;
 use App\Sellers_post;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
     
-    public function __construct()
-    {
-
-    }
     public function storeBuy(Request $data)
     {
     	$imageName = '';
@@ -28,8 +24,6 @@ class PostController extends Controller
             $data->file('picture')->move($destinationPath, $imageName);
 
         }
-        if(!Auth::check())
-            return "hello world";
 
     	Buyers_post::create([
     			'description' => $data->description,

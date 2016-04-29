@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    
 
     <title>BlueMarket</title>
 
@@ -210,7 +210,7 @@
                   <div class="form-group" >
                     <label for="category" class="col-sm-2 control-label">Category: </label>
                     <div class="col-sm-10">
-                      <select class="form-control">
+                      <select class="form-control" id="category" name="category">
                         <option>vehicle</option>
                       </select>
                     </div>

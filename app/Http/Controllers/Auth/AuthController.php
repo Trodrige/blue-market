@@ -83,7 +83,7 @@ class AuthController extends Controller
             'picture' => $imageName,
         ]);
 
-        return redirect('/');
+        return view("welcome");
 
     }
 
@@ -97,12 +97,12 @@ class AuthController extends Controller
             return view('welcome');
         }
 
-        return redirect('/');
+        return view("welcome");
     }
 
     protected function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return view("welcome");
     }
 }
