@@ -7,20 +7,21 @@
 
     <title>BlueMarket</title>
 
-    <!-- Fonts 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <!-- Fonts
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
+        rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     -->
     <!-- Styles -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'AquaBase';
         }
 
         .fa-btn {
@@ -35,7 +36,8 @@
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -51,23 +53,27 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav" >
-                    <li><a  style="color: white;" href="{{ url('/home') }}">Home</a></li>
+                    <li><a  style="color: white;" href="{{ url('/') }}">Home</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a style="color: white;" href="" data-toggle="modal" data-target="#login">Login</a></li>
-                        <li><a style="color: white;" href="" data-toggle="modal" data-target="#signup">Register</a></li>
+                        <li><a style="color: white;" href="" data-toggle="modal" data-target="#login">
+                            Login</a></li>
+                        <li><a style="color: white;" href="" data-toggle="modal" data-target="#signup">
+                            Register</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>
+                                    Logout</a></li>
                             </ul>
                         </li>
                     @endif
@@ -75,7 +81,7 @@
             </div>
         </div>
     </nav>
-    
+
         <!-- Modal for signup
         ========================================================================-->
         <div class="modal fade" id="signup" role="dialog">
@@ -89,7 +95,7 @@
                 <div class="col-sm-offset-4"></div>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="{{ url('create/store') }}" method="post">
+                <form class="form-horizontal" action="{{ url('/register') }}" method="post">
                   <div class="form-group" >
                     <label for="username" class="col-sm-2 control-label">Username: </label>
                     <div class="col-sm-10">
@@ -117,7 +123,8 @@
                   <div class="form-group" >
                     <label for="confirmaton" class="col-sm-2 control-label">Confirm password: </label>
                     <div class="col-sm-10">
-                      <input type="password" class="form-control" id="confirmation" name="confirmation" required>
+                      <input type="password" class="form-control" id="confirmation" name="confirmation"
+                      required>
                     </div>
                   </div>
                   <div class="form-group" >
@@ -134,7 +141,8 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <p>Already have account? <a data-dismiss="modal" data-toggle="modal" data-target="#login">Login here</a>
+                <p>Already have account? <a data-dismiss="modal" data-toggle="modal" data-target="#login">
+                    Login here</a>
               </div>
             </div>
 
@@ -150,7 +158,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Login</h4>
+                <h4 class="modal-title"><strong>Login</strong></h4>
               </div>
               <div class="modal-body">
                 <!-- login form -->
@@ -169,21 +177,22 @@
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-2">
-                      <button type="submit" class="btn btn-default red-btn"><i class="fa fa-btn fa-user"></i>Login</button>
+                      <button type="submit" class="btn btn-default red-btn"><i class="fa fa-btn fa-user"></i>
+                          Login</button>
                     </div>
                   </div>
                 </form>
               </div>
               <div class="modal-footer">
-                <p>Don't have account? <a data-toggle="modal" data-dismiss="modal" data-target="#signup">Sign up here</a></p>
+                <p>Don't have account? <a data-toggle="modal" data-dismiss="modal" data-target="#signup">
+                    Sign up here</a></p>
               </div>
             </div>
 
           </div>
         </div>
-        
+
     @yield('content')
 
-   
 </body>
 </html>
